@@ -5,7 +5,7 @@ function CheckSpells()
   spell_to_check = matches[2]
   
   for k,v in pairs(msdp.CHARACTER_AFFECTS) do
-    if v.SOURCE == matches[2] then
+    if v.SOURCE == spell_to_check then
     spell_up = true
     end
   end
@@ -16,7 +16,7 @@ end
 function RecastSpells()
   spells = {"greater fluidity", "protection from evil", "undead visage", "darksight", "natures restoral", "avatar blessing", "aerial servant", "rejuvination", "resist webs", "cleanse", "talshans diablerie", "corpus serverance"}
   
-  for i in (spells) do
+  for _,i in pairs(spells) do
     CheckSpells(i)
     if spell_up ~= true then
     send("cast '" i.spells "'")
