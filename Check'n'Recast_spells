@@ -1,0 +1,22 @@
+-- lua function to check what spells are up from msdp.CHARACTER_AFFECTS
+
+function CheckSpells()
+  spell_up = false
+  
+  for k,v in pairs(msdp.CHARACTER_AFFECTS) do
+    if v.SOURCE == matches[2] then
+    spell_up = true
+    end
+  end
+
+-- lua function to recast spell that is not up 
+  
+function RecastSpells()
+  spells = {"greater fluidity", "protection from evil", "undead visage", "darksight", "natures restoral", "avatar blessing", "aerial servant", "rejuvination", "resist webs", "cleanse", "talshans diablerie", "corpus serverance"}
+  
+  for i in (spells) do
+    CheckSpells(i)
+    if spell_up ~= true then
+    send("cast '" i.spells "'")
+    end
+  end
