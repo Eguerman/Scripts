@@ -18,11 +18,16 @@ end
 pattern: ^buff$
 
 command:
-spells = {"greater fluidity", "protection from evil", "undead visage", "darksight", "natures restoral", "avatar blessing", "aerial servant", "rejuvination", "resist webs", "cleanse", "talshans diablerie", "corpus serverance"}
+spells = {"greater fluidity", "petrified armor", "protection from evil", "undead visage", "darksight", "natures restoral", "blessing of the avatar", "aerial servant", "rejuvenation", "resist webs", "cleanse", "talshans diablerie", "corpus severance"}
 
 for _,v in pairs(spells) do
   CheckSpells(v)
   if spell_up ~= true then
-  send("cast '" ..i.spells.. "'")
+    if v == "bless" and tonumber(msdp.ALIGNMENT) > 0 then  ??? end
+    if v == "protection from evil" and tonubmer(msdp.ALIGNMENT) > 0 then ??? end
+    if v == "petrified armor" and  CheckSpells("iron skin") then ??? end
+    if v == "rejuvenation" and CheckSpells("regeneration") then ??? end
+  else  
+  send("cast '" ..v.. "' " ..msdp.CHARACTER_NAME)
   end
 end
