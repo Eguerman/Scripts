@@ -2,12 +2,14 @@
 
 function CheckSpells()
   spell_up = false
+  spell_to_check = matches[2]
   
   for k,v in pairs(msdp.CHARACTER_AFFECTS) do
     if v.SOURCE == matches[2] then
     spell_up = true
     end
   end
+end
 
 -- lua function to recast spell that is not up 
   
@@ -20,3 +22,4 @@ function RecastSpells()
     send("cast '" i.spells "'")
     end
   end
+end
